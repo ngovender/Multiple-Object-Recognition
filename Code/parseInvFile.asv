@@ -1,0 +1,40 @@
+invfileout
+
+num = size(invFile,2)
+
+
+% check = 17;
+% j = 1;
+% for i= 1:num % the total number of nodes
+%     count = 1;
+%    for k = 1:215   
+%       objectNodeCount(count,j) = invFile{i}(k,2);
+%       j = j+1;
+%       if (k == check)
+%          count = count + 1;
+%          check = check +18;
+%          j = 1;
+%       end
+%    end
+   
+   startNum = 1;
+   endNum = 17;
+   for k = 1: 16 % for each object
+       count = 1; 
+       for i = 1: num
+           temp = zeros(216, 2);
+           if (~isempty(invFile{i}))
+            temp(invFile{i}(:,1), 1) = invFile{i}(:,2);
+           
+           for m = startNum:endNum
+               %disp(invFile{i}(m,2));
+               disp(temp(m, 2));
+               %objectNodeCount(k,count) = invFile{i}(m,2);
+               objectNodeCount(k,count) = temp(m,2);
+               count = count +1;
+           end
+           
+       end
+      startNum = endNum +1;
+      endNum = endNum +18;
+   end
